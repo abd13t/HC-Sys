@@ -26,6 +26,15 @@ namespace HCSys.Models
             return Connexion.db.Query<Terminal>(FQuery).ToList();
         }
 
+
+        public static List<Terminal> RefreshTerminalReq()
+        {
+            var FQuery = @"select r.Id, t.Latitude,t.Longitude,t.Description from terminal t
+                            LEFT JOIN terminal_request r ON r.TerminalId = t.Id; ";
+            return Connexion.db.Query<Terminal>(FQuery).ToList();
+        }
+
+
         public static bool HasRequest(int idTerminal)
         {
             var FQuery = "SELECT Id FROM terminal_request WHERE Is_Done=0 and TerminalId="+idTerminal;

@@ -43,25 +43,29 @@
             this.btEnglish = new System.Windows.Forms.PictureBox();
             this.btArabic = new System.Windows.Forms.PictureBox();
             this.tbQueryType = new System.Windows.Forms.TabPage();
+            this.lblCleaning = new System.Windows.Forms.Label();
+            this.lblMaintenance = new System.Windows.Forms.Label();
+            this.lblFood = new System.Windows.Forms.Label();
+            this.lblHealth = new System.Windows.Forms.Label();
+            this.btCleaning = new System.Windows.Forms.PictureBox();
+            this.btMaintenance = new System.Windows.Forms.PictureBox();
+            this.btFood = new System.Windows.Forms.PictureBox();
+            this.btHealth = new System.Windows.Forms.PictureBox();
+            this.btBack = new System.Windows.Forms.PictureBox();
             this.lblDestinationQuery = new System.Windows.Forms.Label();
             this.tbQuery = new System.Windows.Forms.TabPage();
+            this.btBack1 = new System.Windows.Forms.PictureBox();
             this.lblQuerySelection = new System.Windows.Forms.Label();
             this.tbConfirmation = new System.Windows.Forms.TabPage();
+            this.btCancel = new System.Windows.Forms.PictureBox();
+            this.btSend = new System.Windows.Forms.PictureBox();
+            this.btBack2 = new System.Windows.Forms.PictureBox();
             this.lblConfirmation = new System.Windows.Forms.Label();
             this.tbThanksMsg = new System.Windows.Forms.TabPage();
             this.lblThanks = new System.Windows.Forms.Label();
             this.tnxTimer = new System.Windows.Forms.Timer(this.components);
             this.PageTimer = new System.Windows.Forms.Timer(this.components);
-            this.btBack = new System.Windows.Forms.PictureBox();
-            this.btBack1 = new System.Windows.Forms.PictureBox();
-            this.btBack2 = new System.Windows.Forms.PictureBox();
-            this.btSend = new System.Windows.Forms.PictureBox();
-            this.btCancel = new System.Windows.Forms.PictureBox();
             this.msgTimer = new System.Windows.Forms.Timer(this.components);
-            this.btHealth = new System.Windows.Forms.PictureBox();
-            this.btFood = new System.Windows.Forms.PictureBox();
-            this.btMaintenance = new System.Windows.Forms.PictureBox();
-            this.btCleaning = new System.Windows.Forms.PictureBox();
             this.mainTabControl.SuspendLayout();
             this.tbMsg.SuspendLayout();
             this.tbLanguageSelection.SuspendLayout();
@@ -69,18 +73,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.btEnglish)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btArabic)).BeginInit();
             this.tbQueryType.SuspendLayout();
-            this.tbQuery.SuspendLayout();
-            this.tbConfirmation.SuspendLayout();
-            this.tbThanksMsg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btBack1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btBack2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btSend)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btCancel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btHealth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btFood)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btMaintenance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btCleaning)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btMaintenance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btFood)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btHealth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btBack)).BeginInit();
+            this.tbQuery.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btBack1)).BeginInit();
+            this.tbConfirmation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btCancel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btSend)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btBack2)).BeginInit();
+            this.tbThanksMsg.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabSelector1
@@ -127,15 +131,14 @@
             // lblMessage
             // 
             this.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMessage.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.Font = new System.Drawing.Font("Roboto", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblMessage.Location = new System.Drawing.Point(50, 50);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(692, 371);
             this.lblMessage.TabIndex = 18;
-            this.lblMessage.Text = "Dear Hajj,\r\nWe are pleased to tell you that you have to go there and do some thin" +
-    "g. By doing that thing you are going to do some thing new.\r\n\r\nThank you\r\n";
-            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMessage.Text = "Need some help ?";
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblMessage.Click += new System.EventHandler(this.label4_Click);
             // 
             // tbLanguageSelection
@@ -241,6 +244,10 @@
             // 
             // tbQueryType
             // 
+            this.tbQueryType.Controls.Add(this.lblCleaning);
+            this.tbQueryType.Controls.Add(this.lblMaintenance);
+            this.tbQueryType.Controls.Add(this.lblFood);
+            this.tbQueryType.Controls.Add(this.lblHealth);
             this.tbQueryType.Controls.Add(this.btCleaning);
             this.tbQueryType.Controls.Add(this.btMaintenance);
             this.tbQueryType.Controls.Add(this.btFood);
@@ -254,6 +261,115 @@
             this.tbQueryType.TabIndex = 1;
             this.tbQueryType.Text = "Query type";
             this.tbQueryType.UseVisualStyleBackColor = true;
+            // 
+            // lblCleaning
+            // 
+            this.lblCleaning.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCleaning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCleaning.Location = new System.Drawing.Point(701, 314);
+            this.lblCleaning.Name = "lblCleaning";
+            this.lblCleaning.Size = new System.Drawing.Size(199, 100);
+            this.lblCleaning.TabIndex = 28;
+            this.lblCleaning.Text = "عربية";
+            this.lblCleaning.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblMaintenance
+            // 
+            this.lblMaintenance.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaintenance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblMaintenance.Location = new System.Drawing.Point(480, 314);
+            this.lblMaintenance.Name = "lblMaintenance";
+            this.lblMaintenance.Size = new System.Drawing.Size(199, 100);
+            this.lblMaintenance.TabIndex = 27;
+            this.lblMaintenance.Text = "عربية";
+            this.lblMaintenance.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblFood
+            // 
+            this.lblFood.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFood.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblFood.Location = new System.Drawing.Point(260, 314);
+            this.lblFood.Name = "lblFood";
+            this.lblFood.Size = new System.Drawing.Size(199, 100);
+            this.lblFood.TabIndex = 26;
+            this.lblFood.Text = "عربية";
+            this.lblFood.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblHealth
+            // 
+            this.lblHealth.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHealth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblHealth.Location = new System.Drawing.Point(35, 314);
+            this.lblHealth.Name = "lblHealth";
+            this.lblHealth.Size = new System.Drawing.Size(199, 100);
+            this.lblHealth.TabIndex = 25;
+            this.lblHealth.Text = "عربية";
+            this.lblHealth.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btCleaning
+            // 
+            this.btCleaning.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btCleaning.Image = ((System.Drawing.Image)(resources.GetObject("btCleaning.Image")));
+            this.btCleaning.Location = new System.Drawing.Point(700, 111);
+            this.btCleaning.Name = "btCleaning";
+            this.btCleaning.Size = new System.Drawing.Size(200, 200);
+            this.btCleaning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btCleaning.TabIndex = 24;
+            this.btCleaning.TabStop = false;
+            this.btCleaning.Tag = "2";
+            this.btCleaning.Click += new System.EventHandler(this.btHealth_Click);
+            // 
+            // btMaintenance
+            // 
+            this.btMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btMaintenance.Image")));
+            this.btMaintenance.Location = new System.Drawing.Point(479, 111);
+            this.btMaintenance.Name = "btMaintenance";
+            this.btMaintenance.Size = new System.Drawing.Size(200, 200);
+            this.btMaintenance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btMaintenance.TabIndex = 23;
+            this.btMaintenance.TabStop = false;
+            this.btMaintenance.Tag = "3";
+            this.btMaintenance.Click += new System.EventHandler(this.btHealth_Click);
+            // 
+            // btFood
+            // 
+            this.btFood.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btFood.Image = ((System.Drawing.Image)(resources.GetObject("btFood.Image")));
+            this.btFood.Location = new System.Drawing.Point(259, 111);
+            this.btFood.Name = "btFood";
+            this.btFood.Size = new System.Drawing.Size(200, 200);
+            this.btFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btFood.TabIndex = 22;
+            this.btFood.TabStop = false;
+            this.btFood.Tag = "4";
+            this.btFood.Click += new System.EventHandler(this.btHealth_Click);
+            // 
+            // btHealth
+            // 
+            this.btHealth.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btHealth.Image = ((System.Drawing.Image)(resources.GetObject("btHealth.Image")));
+            this.btHealth.Location = new System.Drawing.Point(34, 111);
+            this.btHealth.Name = "btHealth";
+            this.btHealth.Size = new System.Drawing.Size(200, 200);
+            this.btHealth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btHealth.TabIndex = 21;
+            this.btHealth.TabStop = false;
+            this.btHealth.Tag = "1";
+            this.btHealth.Click += new System.EventHandler(this.btHealth_Click);
+            // 
+            // btBack
+            // 
+            this.btBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btBack.Image = ((System.Drawing.Image)(resources.GetObject("btBack.Image")));
+            this.btBack.Location = new System.Drawing.Point(34, 31);
+            this.btBack.Name = "btBack";
+            this.btBack.Size = new System.Drawing.Size(64, 64);
+            this.btBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btBack.TabIndex = 20;
+            this.btBack.TabStop = false;
+            this.btBack.Tag = "2";
+            this.btBack.Click += new System.EventHandler(this.btBack2_Click);
             // 
             // lblDestinationQuery
             // 
@@ -278,6 +394,19 @@
             this.tbQuery.TabIndex = 2;
             this.tbQuery.Text = "Query";
             this.tbQuery.UseVisualStyleBackColor = true;
+            // 
+            // btBack1
+            // 
+            this.btBack1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btBack1.Image = ((System.Drawing.Image)(resources.GetObject("btBack1.Image")));
+            this.btBack1.Location = new System.Drawing.Point(34, 31);
+            this.btBack1.Name = "btBack1";
+            this.btBack1.Size = new System.Drawing.Size(64, 64);
+            this.btBack1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btBack1.TabIndex = 21;
+            this.btBack1.TabStop = false;
+            this.btBack1.Tag = "2";
+            this.btBack1.Click += new System.EventHandler(this.btBack2_Click);
             // 
             // lblQuerySelection
             // 
@@ -304,6 +433,45 @@
             this.tbConfirmation.TabIndex = 3;
             this.tbConfirmation.Text = "Confirmation";
             this.tbConfirmation.UseVisualStyleBackColor = true;
+            // 
+            // btCancel
+            // 
+            this.btCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btCancel.Image = ((System.Drawing.Image)(resources.GetObject("btCancel.Image")));
+            this.btCancel.Location = new System.Drawing.Point(455, 182);
+            this.btCancel.Name = "btCancel";
+            this.btCancel.Size = new System.Drawing.Size(128, 128);
+            this.btCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btCancel.TabIndex = 23;
+            this.btCancel.TabStop = false;
+            this.btCancel.Tag = "2";
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
+            // 
+            // btSend
+            // 
+            this.btSend.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btSend.Image = ((System.Drawing.Image)(resources.GetObject("btSend.Image")));
+            this.btSend.Location = new System.Drawing.Point(244, 182);
+            this.btSend.Name = "btSend";
+            this.btSend.Size = new System.Drawing.Size(128, 128);
+            this.btSend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btSend.TabIndex = 22;
+            this.btSend.TabStop = false;
+            this.btSend.Tag = "2";
+            this.btSend.Click += new System.EventHandler(this.btSend_Click);
+            // 
+            // btBack2
+            // 
+            this.btBack2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btBack2.Image = ((System.Drawing.Image)(resources.GetObject("btBack2.Image")));
+            this.btBack2.Location = new System.Drawing.Point(34, 31);
+            this.btBack2.Name = "btBack2";
+            this.btBack2.Size = new System.Drawing.Size(64, 64);
+            this.btBack2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btBack2.TabIndex = 21;
+            this.btBack2.TabStop = false;
+            this.btBack2.Tag = "2";
+            this.btBack2.Click += new System.EventHandler(this.btBack2_Click);
             // 
             // lblConfirmation
             // 
@@ -348,130 +516,13 @@
             // 
             // PageTimer
             // 
-            this.PageTimer.Interval = 20000;
+            this.PageTimer.Interval = 30000;
             this.PageTimer.Tick += new System.EventHandler(this.PageTimer_Tick);
-            // 
-            // btBack
-            // 
-            this.btBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btBack.Image = ((System.Drawing.Image)(resources.GetObject("btBack.Image")));
-            this.btBack.Location = new System.Drawing.Point(34, 31);
-            this.btBack.Name = "btBack";
-            this.btBack.Size = new System.Drawing.Size(64, 64);
-            this.btBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btBack.TabIndex = 20;
-            this.btBack.TabStop = false;
-            this.btBack.Tag = "2";
-            this.btBack.Click += new System.EventHandler(this.btBack2_Click);
-            // 
-            // btBack1
-            // 
-            this.btBack1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btBack1.Image = ((System.Drawing.Image)(resources.GetObject("btBack1.Image")));
-            this.btBack1.Location = new System.Drawing.Point(34, 31);
-            this.btBack1.Name = "btBack1";
-            this.btBack1.Size = new System.Drawing.Size(64, 64);
-            this.btBack1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btBack1.TabIndex = 21;
-            this.btBack1.TabStop = false;
-            this.btBack1.Tag = "2";
-            this.btBack1.Click += new System.EventHandler(this.btBack2_Click);
-            // 
-            // btBack2
-            // 
-            this.btBack2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btBack2.Image = ((System.Drawing.Image)(resources.GetObject("btBack2.Image")));
-            this.btBack2.Location = new System.Drawing.Point(34, 31);
-            this.btBack2.Name = "btBack2";
-            this.btBack2.Size = new System.Drawing.Size(64, 64);
-            this.btBack2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btBack2.TabIndex = 21;
-            this.btBack2.TabStop = false;
-            this.btBack2.Tag = "2";
-            this.btBack2.Click += new System.EventHandler(this.btBack2_Click);
-            // 
-            // btSend
-            // 
-            this.btSend.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btSend.Image = ((System.Drawing.Image)(resources.GetObject("btSend.Image")));
-            this.btSend.Location = new System.Drawing.Point(244, 182);
-            this.btSend.Name = "btSend";
-            this.btSend.Size = new System.Drawing.Size(128, 128);
-            this.btSend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btSend.TabIndex = 22;
-            this.btSend.TabStop = false;
-            this.btSend.Tag = "2";
-            this.btSend.Click += new System.EventHandler(this.btSend_Click);
-            // 
-            // btCancel
-            // 
-            this.btCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btCancel.Image = ((System.Drawing.Image)(resources.GetObject("btCancel.Image")));
-            this.btCancel.Location = new System.Drawing.Point(455, 182);
-            this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(128, 128);
-            this.btCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btCancel.TabIndex = 23;
-            this.btCancel.TabStop = false;
-            this.btCancel.Tag = "2";
-            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // msgTimer
             // 
             this.msgTimer.Interval = 110000;
             this.msgTimer.Tick += new System.EventHandler(this.msgTimer_Tick);
-            // 
-            // btHealth
-            // 
-            this.btHealth.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btHealth.Image = ((System.Drawing.Image)(resources.GetObject("btHealth.Image")));
-            this.btHealth.Location = new System.Drawing.Point(34, 111);
-            this.btHealth.Name = "btHealth";
-            this.btHealth.Size = new System.Drawing.Size(200, 200);
-            this.btHealth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btHealth.TabIndex = 21;
-            this.btHealth.TabStop = false;
-            this.btHealth.Tag = "1";
-            this.btHealth.Click += new System.EventHandler(this.btHealth_Click);
-            // 
-            // btFood
-            // 
-            this.btFood.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btFood.Image = ((System.Drawing.Image)(resources.GetObject("btFood.Image")));
-            this.btFood.Location = new System.Drawing.Point(259, 111);
-            this.btFood.Name = "btFood";
-            this.btFood.Size = new System.Drawing.Size(200, 200);
-            this.btFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btFood.TabIndex = 22;
-            this.btFood.TabStop = false;
-            this.btFood.Tag = "4";
-            this.btFood.Click += new System.EventHandler(this.btHealth_Click);
-            // 
-            // btMaintenance
-            // 
-            this.btMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btMaintenance.Image")));
-            this.btMaintenance.Location = new System.Drawing.Point(479, 111);
-            this.btMaintenance.Name = "btMaintenance";
-            this.btMaintenance.Size = new System.Drawing.Size(200, 200);
-            this.btMaintenance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btMaintenance.TabIndex = 23;
-            this.btMaintenance.TabStop = false;
-            this.btMaintenance.Tag = "3";
-            this.btMaintenance.Click += new System.EventHandler(this.btHealth_Click);
-            // 
-            // btCleaning
-            // 
-            this.btCleaning.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btCleaning.Image = ((System.Drawing.Image)(resources.GetObject("btCleaning.Image")));
-            this.btCleaning.Location = new System.Drawing.Point(700, 111);
-            this.btCleaning.Name = "btCleaning";
-            this.btCleaning.Size = new System.Drawing.Size(200, 200);
-            this.btCleaning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btCleaning.TabIndex = 24;
-            this.btCleaning.TabStop = false;
-            this.btCleaning.Tag = "2";
-            this.btCleaning.Click += new System.EventHandler(this.btHealth_Click);
             // 
             // Main
             // 
@@ -495,20 +546,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.btArabic)).EndInit();
             this.tbQueryType.ResumeLayout(false);
             this.tbQueryType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btCleaning)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btMaintenance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btFood)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btHealth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btBack)).EndInit();
             this.tbQuery.ResumeLayout(false);
             this.tbQuery.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btBack1)).EndInit();
             this.tbConfirmation.ResumeLayout(false);
             this.tbConfirmation.PerformLayout();
-            this.tbThanksMsg.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btBack1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btBack2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btSend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btCancel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btHealth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btFood)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btMaintenance)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btCleaning)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btSend)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btBack2)).EndInit();
+            this.tbThanksMsg.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -547,6 +598,10 @@
         private System.Windows.Forms.PictureBox btMaintenance;
         private System.Windows.Forms.PictureBox btFood;
         private System.Windows.Forms.PictureBox btHealth;
+        private System.Windows.Forms.Label lblCleaning;
+        private System.Windows.Forms.Label lblMaintenance;
+        private System.Windows.Forms.Label lblFood;
+        private System.Windows.Forms.Label lblHealth;
     }
 }
 

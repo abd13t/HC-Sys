@@ -15,27 +15,30 @@ namespace HCSys.Models
     {
         public static GMapOverlay markersOverlay;
         public static GMapOverlay markersOverlay2;
-        public static void AddMarker(PointLatLng pos, GMapControl MainMap, String tooltip, String id,bool redColor=false)
+        public static void AddMarker(PointLatLng pos, GMapControl MainMap, String id,bool redColor=false)
         {
             GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(pos.Lat, pos.Lng), redColor == false ? GMarkerGoogleType.green : GMarkerGoogleType.red);
 
             if (redColor)
-                foreach (var item in terminal_request.LoadData(id))
+               // foreach (var item in terminal_request.LoadData(id))
                 {
-                    DateTime DateTime1 = Convert.ToDateTime(item.DateTime);
+
+                    DateTime DateTime1 = Convert.ToDateTime(terminal_request.LoadData(id)[0].DateTime);
                     TimeSpan span = DateTime.Now - DateTime1;
-                    marker.ToolTipText = marker.ToolTipText
-                        + "Date Time : "
+
+                    marker.ToolTipText = marker.ToolTipText+
+                       Environment.NewLine + "Date Time : "
                         + span.ToString(@"hh\:mm") + Environment.NewLine
                         + "Terminal : "
-                        + Convert.ToString(item.Description) + Environment.NewLine
+                        + Convert.ToString(terminal_request.LoadData(id)[0].Description) + Environment.NewLine
                         + "Type : "
-                        + Convert.ToString(item.rt) + Environment.NewLine
+                        + Convert.ToString(terminal_request.LoadData(id)[0].rt) + Environment.NewLine
                         + "Querie : "
-                        + Convert.ToString(item.req) + Environment.NewLine
+                        + Convert.ToString(terminal_request.LoadData(id)[0].req) + Environment.NewLine
                         + "---------------------------------------";
-                  //  marker.ta = id;
-                   // Int32.TryParse(id, out j)
+                    marker.Tag = terminal_request.LoadData(id)[0].Id;
+
+                    
                 }
 
 

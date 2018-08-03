@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HCSys
+namespace HC_Collector
 {
     static class Program
     {
@@ -17,9 +16,6 @@ namespace HCSys
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Connexion.ConnectToDb();
-            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("EN-en");
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("EN-en");
             Application.Run(new Main());
         }
     }

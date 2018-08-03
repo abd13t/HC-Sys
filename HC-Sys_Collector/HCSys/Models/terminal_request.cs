@@ -23,13 +23,13 @@ namespace HCSys.Models
             return Connexion.db.Query<terminal_request>(FQuery).ToList();
         }
 
-        public static List<dynamic> LoadData()
+        public static List<dynamic> LoadData(string filter,bool all=false)
         {
             var FQuery = @"SELECT tr.id, t.Description,tr.DateTime,rt.Description_En
                             FROM terminal_request tr
                             left join  terminal t on t.Id=tr.TerminalId
                             left join request r on r.Id=tr.Request_Id
-                            left join request_type rt on rt.Id=r.RequestTypeid";
+                            left join request_type rt on rt.Id=r.RequestTypeid WHERE tr.Is_Done=0 AND  rt.Description_En LIKE '%"+filter+ "%'  ORDER BY  r.Priority DESC,tr.DateTime ASC";
             return Connexion.db.Query(FQuery).ToList();
         }
 
@@ -44,18 +44,14 @@ namespace HCSys.Models
 
         public static List<dynamic> LoadData(string id)
         {
-         
-                var FQuery = @"SELECT t.Description,tr.DateTime,rt.Description_En As rt,r.Description_En AS req
+            var FQuery = @"SELECT tr.Id,t.Description,tr.DateTime,rt.Description_En As rt,r.Description_En AS req
                             FROM terminal_request tr
                             left join  terminal t on t.Id=tr.TerminalId
                             left join request r on r.Id=tr.Request_Id
                             left join request_type rt on rt.Id=r.RequestTypeid
-                            WHERE tr.TerminalId=" + id+" LIMIT 0,1";
-                return Connexion.db.Query(FQuery).ToList();
-           
-          
+                            WHERE tr.TerminalId=" + id+ " AND tr.Is_Done=0 ORDER BY r.Priority DESC, DateTime ASC ";
+
+            return Connexion.db.Query(FQuery).ToList();
         }
-
-
     }
 }

@@ -1,16 +1,12 @@
-﻿using HC_Sender.Models;
+﻿using Dapper;
+using HC_Sender.Models;
 using HCSys.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HC_Sender
@@ -29,7 +25,7 @@ namespace HC_Sender
 
         public readonly string[] Ftxt_DestinationQuery =
                 { "وجهة الطلب",
-                  "destination of the request",
+                  "Request destination",
                   "درخواست کی منزل" };
 
         public readonly string[] Ftxt_Query = 
@@ -43,9 +39,44 @@ namespace HC_Sender
                   "کیا آپ واقعی اپنی درخواست بھیجنے کے لئے چاہتے ہیں؟" };
 
         public readonly string[] Ftxt_Thanks =
-                {"شكرا على المساعدة",
-                 "Thank you for help",
-                 "مدد کے لیئے شکریہ"};
+                {"شكرا على المساعدة"
+                +"\n"+"سنرسل لك فريقًا في أسرع وقت ممكن",
+
+                 "Thank you for help"
+                +"\n"+"We are sending a team as soon as possible",
+
+                 "مدد کے لیئے شکریہ"
+                +"\n"+"ہم آپ کو کسی بھی ٹیم کو جلد از جلد بھیجیں"};
+
+        public readonly string[] FHealthLabel =
+                {"الخدمات الطبية",
+                 "Medical assistance",
+                 "طبی امداد"};
+
+        public readonly string[] FFoodLabel =
+                {"خدمة الطعام",
+                 "Food service",
+                 "کھانے کی خدمت"};
+
+        public readonly string[] FCleaningLabel =
+                {"الخدمات الصحية والتنظيف",
+                 "Sanitary and cleaning services",
+                 "سینیٹری کی خدمات اور صفائی"};
+
+        public readonly string[] FMaintenanceLabel =
+                {"خدمات الصيانة",
+                 "Maintenance service",
+                 "بحالی کی خدمات"};
+
+        public readonly string[] FHelpMsg =
+                {"أخي الحاج ، هل تحتاج إلى مساعدة؟"
+                +"\n"+"انقر الشاشة",
+                 "Do you need help?"
+                 +"\n"+"Touche the screen",
+                 "میرا بھائی حج، کیا آپ کی مدد کی ضرورت ہے؟"
+                 +"\n"+"اسکرین پر کلک کریں"};
+
+        private terminal_request FRequest;
 
 
 
@@ -68,14 +99,23 @@ namespace HC_Sender
                                           lblArabic, lblEnglish, lblUrdu,
                                           btSend, btCancel,
                                           btHealth, btFood,
-                                          btMaintenance, btCleaning});
+                                          btMaintenance, btCleaning,
+                                          lblHealth, lblFood,
+                                          lblMaintenance, lblCleaning});
 
             var FCenterPoint = (ClientSize.Width) / 2;
 
             btHealth.Left = FCenterPoint - 500;
+            lblHealth.Left = btHealth.Left;
+
             btFood.Left = FCenterPoint - 225;
+            lblFood.Left = btFood.Left;
+
             btMaintenance.Left = FCenterPoint + 225 -(200);
+            lblMaintenance.Left = btMaintenance.Left;
+
             btCleaning.Left = FCenterPoint + 500 -(200);
+            lblCleaning.Left = btCleaning.Left;
 
             tnxTimer.Enabled = true;
             msgTimer.Enabled = true;
@@ -97,6 +137,7 @@ namespace HC_Sender
                 case 1:
                     {
                         lblSelectLanguage.Text = "اختر لغتك";
+                        lblMessage.Text = FHelpMsg[FTimerIndex-1];
                         FTimerIndex = FTimerIndex + 1;
                         break;
                     }
@@ -104,6 +145,7 @@ namespace HC_Sender
                 case 2:
                     {
                         lblSelectLanguage.Text = "Select your language";
+                        lblMessage.Text = FHelpMsg[FTimerIndex-1];
                         FTimerIndex = FTimerIndex + 1;
                         break;
                     }
@@ -111,6 +153,7 @@ namespace HC_Sender
                 case 3:
                     {
                         lblSelectLanguage.Text = "اپنی زبان منتخب کریں";
+                        lblMessage.Text = FHelpMsg[FTimerIndex-1];
                         FTimerIndex = FTimerIndex + 1;
                         break;
                     }
@@ -248,6 +291,9 @@ namespace HC_Sender
 
         private void btSend_Click(object sender, EventArgs e)
         {
+            FRequest.DateTime = Connexion.GetServerDateTime();
+            Connexion.NInsert(FRequest);
+
             GoToNextTab();
             GoToNextTab();
             Thread.Sleep(5000);
@@ -264,7 +310,12 @@ namespace HC_Sender
             lblQuerySelection.Text = Ftxt_Query[FSelectedLanguage-1];
             lblConfirmation.Text = Ftxt_Confirmation[FSelectedLanguage-1];
             lblThanks.Text = Ftxt_Thanks[FSelectedLanguage - 1];
-            
+
+            lblHealth.Text = FHealthLabel[FSelectedLanguage - 1];
+            lblFood.Text = FFoodLabel[FSelectedLanguage - 1];
+            lblMaintenance.Text = FMaintenanceLabel[FSelectedLanguage - 1];
+            lblCleaning.Text = FCleaningLabel[FSelectedLanguage - 1];
+
         }
 
         private void PageTimer_Tick(object sender, EventArgs e)
@@ -274,7 +325,7 @@ namespace HC_Sender
 
         private void GoToScreenSaver()
         {
-            mainTabControl.SelectTab(1);
+            mainTabControl.SelectTab(0);
         }
 
         private void btCancel_Click(object sender, EventArgs e)
@@ -329,12 +380,14 @@ namespace HC_Sender
         {
             GoToNextTab();
 
+
+
+
             Button FjBtn;
             int FjOldTop = 100;
             FreeButtons(tbQuery);
 
             var _tag = ((PictureBox)sender).Tag;
-
 
             var FjData = Request.RefreshDataListe(Int32.Parse(_tag.ToString()));
             for (int jj = 0; jj < FjData.Count; jj++)
@@ -367,6 +420,21 @@ namespace HC_Sender
                 FjBtn.Click += (z, k) =>
                 {
                     GoToNextTab();
+
+                    var _Ftag = int.Parse(((Button)z).Tag.ToString());
+                    FRequest = new terminal_request();
+
+                    FRequest.Request_Id = _Ftag;
+
+                    var Rn = new Random();
+                    int rInt = Rn.Next(0, 35);
+
+                    var SQ = "SELECT * FROM terminal WHERE Id=@Id;";
+                    var FReq = Connexion.db.QueryFirstOrDefault<Terminal>(SQ, new { Id = rInt });
+
+                    FRequest.TerminalId = FReq.Id;
+                    FRequest.Latitude = FReq.Latitude;
+                    FRequest.Longitude = FReq.Longitude;
                 };
 
             }
